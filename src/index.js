@@ -6,6 +6,8 @@ import sum from '@/test';
 import { RouterProvider } from 'react-router-dom';
 import router from './router';
 
+import '@/theme.css';
+
 console.log(sum(1, 2));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
