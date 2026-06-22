@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { addBillList } from '@/store/modules/billStore'
 import { useDispatch } from 'react-redux'
+import dayjs from 'dayjs'
 
 const New = () => {
   const dispatch = useDispatch()
@@ -17,18 +18,23 @@ const New = () => {
   const [money, setMoney] = useState(0)
   // 分类
   const [useFor, setUseFor] = useState('')
+  // 日期
+  const [date, setDate] = useState(new Date())
   // 保存账单
   const saveBill = () => {
     // 收集账单信息
     const data = {
       type: billType,
-      date: new Date(),
+      date: date,
       money: billType === 'pay' ? -money : money,
       useFor: useFor
     }
     console.log(data)
     dispatch(addBillList(data))
+    navigate('/')
   }
+  // 时间选择器开关
+  const [dateVisible, setDateVisible] = useState(false)
   return (
     <div className="keepAccounts">
       <NavBar className="nav" onBack={() => navigate(-1)}>
@@ -57,11 +63,15 @@ const New = () => {
           <div className="kaForm">
             <div className="date">
               <Icon type="calendar" className="icon" />
-              <span className="text">{'今天'}</span>
+              <span className="text" onClick={() => setDateVisible(true)}>{dayjs(date).format('YYYY-MM-DD')}</span>
+              {/* 时间选择器 */}
               <DatePicker
                 className="kaDate"
                 title="记账日期"
                 max={new Date()}
+                visible={dateVisible}
+                onClose={() => setDateVisible(false)}
+                onConfirm={(value) => { setDateVisible(false); setDate(value) }}
               />
             </div>
             <div className="kaInput">
@@ -89,7 +99,7 @@ const New = () => {
                     <div
                       className={classNames(
                         'item',
-                        ''
+                        useFor === item.type && 'selected'
                       )}
                       key={item.type}
                       onClick={() => setUseFor(item.type)}

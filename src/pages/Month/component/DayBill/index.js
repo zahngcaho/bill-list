@@ -6,6 +6,7 @@ import { useState } from 'react'
 import Icon from '@/components/Icon'
 
 const DailyBill = ({ date, billList }) => {
+  
   const dayResult = useMemo(() => {
     //支出    收入    结余
     const pay = billList.filter(item => item.type === 'pay').reduce((a, c) => a + c.money, 0)
@@ -29,11 +30,11 @@ const DailyBill = ({ date, billList }) => {
         <div className="oneLineOverview">
           <div className="pay">
             <span className="type">支出</span>
-            <span className="money">{dayResult.pay}</span>
+            <span className="money">{dayResult.pay.toFixed(2)}</span>
           </div>
           <div className="income">
             <span className="type">收入</span>
-            <span className="money">{dayResult.income}</span>
+            <span className="money">{dayResult.income.toFixed(2)}</span>
           </div>
           <div className="balance">
             <span className="money">{dayResult.total.toFixed(2)}</span>

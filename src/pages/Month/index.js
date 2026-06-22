@@ -49,7 +49,7 @@ const Month = () => {
   // 按月分组后再按日账单分组
   const dayGroup = useMemo(() => {
     const groupData = _.groupBy(currentMonthList, (item) => dayjs(item.date).format('YYYY-MM-DD'))
-    const keys = Object.keys(groupData)
+    const keys = Object.keys(groupData).sort((a, b) => dayjs(b).valueOf() - dayjs(a).valueOf())
     return {
       groupData,
       keys

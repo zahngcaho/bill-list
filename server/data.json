@@ -132,6 +132,55 @@
       "money": -8,
       "useFor": "taxi",
       "id": "7ZtC7lL9Xm8"
+    },
+    {
+      "type": "income",
+      "date": "2026-06-22T14:22:49.029Z",
+      "money": 100,
+      "useFor": "bonus",
+      "id": "hPoxwy2UzvI"
+    },
+    {
+      "type": "income",
+      "date": "2026-06-22T14:23:17.354Z",
+      "money": 100,
+      "useFor": "bonus",
+      "id": "zHjQqQykSVM"
+    },
+    {
+      "type": "pay",
+      "date": "2026-06-22T14:25:00.135Z",
+      "money": -10,
+      "useFor": "book",
+      "id": "RPBJG8nCqY4"
+    },
+    {
+      "type": "pay",
+      "date": "2026-06-20T16:00:00.000Z",
+      "money": -5,
+      "useFor": "promote",
+      "id": "ilg8EdnJOjc"
+    },
+    {
+      "type": "pay",
+      "date": "2026-06-22T14:29:18.716Z",
+      "money": -20,
+      "useFor": "game",
+      "id": "_pGzV2nPWsQ"
+    },
+    {
+      "type": "pay",
+      "date": "2026-06-22T14:29:56.321Z",
+      "money": -8,
+      "useFor": "community",
+      "id": "cwWBiyk9X1E"
+    },
+    {
+      "type": "income",
+      "date": "2026-06-04T16:00:00.000Z",
+      "money": 100,
+      "useFor": "overtimepay",
+      "id": "T14UCsD5t5k"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
