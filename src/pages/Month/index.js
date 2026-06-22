@@ -5,8 +5,12 @@ import classNames from 'classnames'
 
 const Month = () => {
   const [dateVisible, setDateVisible] = useState(false)
+  const [currentDate,setCurrentDate] = useState(()=>{
+    return new Date()
+  })
   const onConfirm = (date) => {
     console.log(date)
+    setCurrentDate(date)
     setDateVisible(false)
   }
   return (
@@ -19,7 +23,8 @@ const Month = () => {
           {/* 时间切换区域 */}
           <div className="date" onClick={() => setDateVisible(true)}>
             <span className="text">
-              2023 | 3月账单
+              {currentDate.getFullYear()} | {currentDate.getMonth() + 1}月账单
+              {/* 2023 | 3月账单 */}
             </span>
             <span className={classNames('arrow', dateVisible && 'expand')}></span>
           </div>
