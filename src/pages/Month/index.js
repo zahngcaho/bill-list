@@ -5,6 +5,7 @@ import classNames from 'classnames'
 import { useSelector } from 'react-redux'
 import _ from 'lodash'
 import dayjs from 'dayjs'
+import { useEffect } from 'react'
 const Month = () => {
   // 按月做数据的分组
   const bills = useSelector(state => state.bill.bills)
@@ -38,7 +39,10 @@ const Month = () => {
     setDateVisible(false)
   }
   console.log('当前月账单', currentMonthList)
-
+  // 初始化
+  useEffect(() => {
+    setMonthList(monthGroup[dayjs(currentDate).format('YYYY-MM')] || [])
+  }, [monthGroup])
   return (
     <div className="monthlyBill">
       <NavBar className="nav" backArrow={false}>
