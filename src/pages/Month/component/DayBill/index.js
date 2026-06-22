@@ -36,7 +36,7 @@ const DailyBill = ({ date, billList }) => {
             <span className="money">{dayResult.income}</span>
           </div>
           <div className="balance">
-            <span className="money">{dayResult.total}</span>
+            <span className="money">{dayResult.total.toFixed(2)}</span>
             <span className="type">结余</span>
           </div>
         </div>
